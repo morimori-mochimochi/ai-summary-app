@@ -17,18 +17,20 @@ function App () {
     setError(null);
     setSummary('');
 
-    const apiKey = import.meta.env.GEMLNI_API_KEY
-    const genAI = new GoogleGeneratineAI(apiKey);
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const genAI = new GoogleGenerativeAI(apiKey);
 
     // webで利用可能なモデルを指定
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
     try {
-      const response = await model.generateContent(input || "Explain how AI works");
-      setResult(response.response.text());
+      const response = await model.generateContent(text);
+      setSummary(response.response.text());
     } catch (error) {
       console.error(error);
-      setResult("エラーが発生しました: " + error.message);
+      setError("エラーが発生しました: " + error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
