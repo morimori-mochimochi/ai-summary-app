@@ -41,7 +41,7 @@ function App () {
   };
   return (
     <div className="container">
-      <h1>AI要約アプリ</h1>
+      <h1>AIアプリ</h1>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -53,7 +53,7 @@ function App () {
       {error && <div className="error">{error}</div>}
       {summary && (
         <div className="summary">
-          <h2>要約結果：</h2>
+          <h2>結果：</h2>
           <p>{summary}</p>
         </div>
       )}  
