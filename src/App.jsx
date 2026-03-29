@@ -18,10 +18,16 @@ function App () {
     setSummary('');
 
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    if (!apiKey) {
+      setError('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
+      setIsLoading(false);
+      return;
+    }
+
     const genAI = new GoogleGenerativeAI(apiKey);
 
     // webで利用可能なモデルを指定
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash"});
 
     try {
       const response = await model.generateContent(text);
