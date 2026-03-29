@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function App () {
   const [text, setText] = useState('');
@@ -12,11 +13,11 @@ function App () {
       return;
     }
 
-    setisLoading(true);
+    setIsLoading(true);
     setError(null);
     setSummary('');
 
-    const apiKey = import.meta.env.VITE_GEMLNI_API_KEY
+    const apiKey = import.meta.env.GEMLNI_API_KEY
     const genAI = new GoogleGeneratineAI(apiKey);
 
     // webで利用可能なモデルを指定
