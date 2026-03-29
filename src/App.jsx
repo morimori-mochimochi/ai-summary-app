@@ -48,7 +48,7 @@ function App () {
         placeholder="ここに要約したい文章を入れてください"
       />
       <button onClick={handleSummarize} disabled={isLoading}>
-        { isLoading ? '要約中...' : '要約する' }
+        { isLoading ? '考え中...' : '送信する' }
       </button>
       {error && <div className="error">{error}</div>}
       {summary && (
