@@ -45,7 +45,7 @@ function App () {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="ここに要約したい文章を入れてください"
+        placeholder="ここに質問を入れてください"
       />
       <button onClick={handleSummarize} disabled={isLoading}>
         { isLoading ? '考え中...' : '送信する' }
